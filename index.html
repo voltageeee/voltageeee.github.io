@@ -1,0 +1,128 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="./bin/style.css">
+  <title>voltageee</title>
+  <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      @keyframes rainbowAnimation {
+      0% { color: violet; }
+      16.67% { color: indigo; }
+      33.33% { color: blue; }
+      50% { color: green; }
+      66.67% { color: yellow; }
+      83.33% { color: orange; }
+      100% { color: red; }
+    }
+
+    .rainbow-text {
+      display: inline-block;
+      animation: rainbowAnimation 5s infinite;
+    }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .hidden {
+        display: none;
+        opacity: 1;
+        animation: fadeIn 1s;
+      }
+      #background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.5;
+        filter: brightness(0.5) blur(5px); 
+      }
+      .center {
+        position: relative;
+        z-index: 1;
+      }
+      
+    .hidden {
+    }
+    .text-button:hover,
+    #links a:hover {
+      color: red;
+    }
+    .text-button,
+    #links a {
+      transition: color 0.3s ease
+    }
+    .text-button,
+    #links a {
+      transition: color 0.3s ease;
+    }
+    #title a {
+      transition: color 0.3s ease;
+    }
+    #title a:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div id="app">
+      <div id="wrapper" class="hidden">
+        <h1 class="glitch" data-text="voltage">voltage</h1>
+      </div>
+    </div>
+    <div id="links" class="hidden">
+      <a href="https://t.me/voltageeeeee">[contact me]</a>
+      <a href="./gmodhacklib">[gmodhacklib]</a>
+      <a href="https://github.com/voltageeee">[github]</a>
+      <a href="https://discord.gg/Zxqzh7K8zd">[discord//server]</a>
+      <a href="./voltmusic">[voltmusic]</a>
+    </div>
+    <div class="hidden">
+      <a href="https://soundcloud.com/reshetoff99/sets/felt-like-it"><span class="rainbow-text">[best playlist ever]</span></a>
+    </div>
+
+    <button onclick="showHiddenElements()" class="text-button">[click to open]</button>
+    <video id="background-video" src="./bin/video.mp4" muted="" loop="" autoplay="" class="hidden"></video>
+
+    <script>
+      var videos = [
+        './bin/video1.mp4',
+        './bin/video2.mp4',
+        './bin/video3.mp4',
+        './bin/video4.mp4',
+        './bin/video5.mp4',
+        './bin/video6.mp4',
+        './bin/video7.mp4',
+        './bin/video8.mp4',
+      ];
+
+      function getRandomVideo() {
+        var randomIndex = Math.floor(Math.random() * videos.length);
+        return videos[randomIndex];
+      }
+
+      function showHiddenElements() {
+        var elements = document.getElementsByClassName("hidden");
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style.display = "block";
+        }
+        var video = document.getElementById("background-video");
+        video.src = getRandomVideo();
+        video.play();
+        document.getElementsByTagName("button")[0].style.display = "none";
+        video.addEventListener('loadeddata', function() {
+          video.style.opacity = '1';
+          video.muted = false;
+        });
+      }
+    </script>
+  </div>
+</body>
+</html>
