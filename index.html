@@ -13,7 +13,26 @@
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+	overflow: hidden; /* Prevent scrollbars */
       }
+
+    .snowflake {
+      position: fixed;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      animation: snowfall linear infinite;
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
       @keyframes rainbowAnimation {
       0% { color: violet; }
       16.67% { color: indigo; }
@@ -110,7 +129,27 @@ body {
         './bin/video10.mp4',
 	'./bin/video11.mp4',     
       ];
+    // Function to create a snowflake
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.className = "snowflake";
+      snowflake.style.left = Math.random() * window.innerWidth + "px";
+      document.body.appendChild(snowflake);
+    }
 
+    // Function to create multiple snowflakes
+    function createSnowfall() {
+      for (let i = 0; i < 50; i++) {
+        createSnowflake();
+      }
+    }
+
+    // Call the createSnowfall function when the button is clicked
+    function showHiddenElements() {
+      createSnowfall();
+      // Your existing code...
+    }
+	    
       function getRandomVideo() {
         var randomIndex = Math.floor(Math.random() * videos.length);
         return videos[randomIndex];
