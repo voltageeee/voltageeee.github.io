@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vltg1337</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="icon" type="image/x-icon" href="resources/ava.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".togglebtn").click(function(){
+                $(".hidden").toggle(); 
+                $(this).hide(); 
+                $(".voltcontainer").css("display", "flex"); 
+                $(".voltbutton").css("display", "flex"); 
+
+            var video = document.querySelector('video');
+                video.style.display = 'block';
+                video.play();
+                video.volume = 0.5;
+                
+                video.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="hidden" style="left: 50%;" id="someshit2">hi, i'm voltage, a lua dev</h1>
+    <a class="togglebtn">click me</a>
+    <span class="volttext" id="youtubeText">my yt</span>
+    <span class="volttext" id="discordText">my discord server</span>
+    <span class="volttext" id="tgText">my tg</span>
+    <span class="volttext" id="gitText">my github</span>
+    <div class="hidden voltcontainer">
+    <a href="https://www.youtube.com/@voltageeeee" class="hidden voltbutton" id="youtubeButton">
+        <img src="resources/youtube.svg" width="24" height="24">  
+    </a>
+    <a class="hidden voltbutton" href="https://discord.gg/mkMCJzNq2q" id="discordButton">
+        <img src="resources/discord.svg" width="24" height="24">
+    </a>
+    <a class="hidden voltbutton" href="https://t.me/opachekavo" id="tgButton">
+        <img src="resources/telegram.svg" width="24" height="24">
+    </a>
+    <a class="hidden voltbutton" href="https://github.com/voltageeee" id="gitButton">
+        <img src="resources/github.svg" width="24" height="24">
+    </a>
+    </div>
+    <script src="resources/script.js"></script>
+    <video autoplay  id="fullscreenVideo" style="display: none; width: 100%; height: auto; opacity: 0.2; z-index: -1; position: fixed; top: 0; left: 0;"> <source src="resources/vid.mp4" type="video/mp4"> </video>
+</body>
+</html>
