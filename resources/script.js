@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttons = [
         { button: document.getElementById('youtubeButton'), text: document.getElementById('youtubeText') },
         { button: document.getElementById('tgButton'), text: document.getElementById('tgText') },
-        { button: document.getElementById('discordButton'), text: document.getElementById('discordText') },
+        { button: document.getElementById('chessButton'), text: document.getElementById('chText') },
         { button: document.getElementById('gitButton'), text: document.getElementById('gitText') },
+        { button: document.getElementById('dbButton'), text: document.getElementById('dbText') },
     ];
 
     function hideAllText() {
